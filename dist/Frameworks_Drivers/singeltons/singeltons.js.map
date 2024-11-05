@@ -1,0 +1,1 @@
+{"version":3,"file":"singeltons.js","sourceRoot":"","sources":["../../../src/Frameworks_Drivers/singeltons/singeltons.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,gBAAgB,CAAA;AAE7C,MAAM,eAAe,GAAG,UAAiD,CAAA;AAEzE,MAAM,CAAC,MAAM,MAAM,GAAG,eAAe,CAAC,MAAM,IAAI,IAAI,YAAY,EAAE,CAAA;AAElE,IAAI,OAAO,CAAC,GAAG,CAAC,QAAQ,KAAK,YAAY;IAAE,eAAe,CAAC,MAAM,GAAG,MAAM,CAAA"}
