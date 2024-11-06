@@ -37,7 +37,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(csrfProtection);
 app.get("/api/oauth/google/", passport.authenticate("google"));
-app.get("/api/oauth/google/callback/", passport.authenticate("google"), (req, res) => {
+app.get("/api/oauth/google/callback/", passport.authenticate("google", {
+    failureRedirect: process.env.CLIENT_LOGIN_PAGE
+}), (req, res) => {
     res.cookie('session_id', req.sessionID, {
         httpOnly: true,
         path: "/",
@@ -45,7 +47,7 @@ app.get("/api/oauth/google/callback/", passport.authenticate("google"), (req, re
         secure: process.env.NODE_ENV == "production",
         sameSite: "lax",
         maxAge: 3600000,
-    }).redirect(process.env.CLIENT_ORIGIN + "/page.html");
+    }).redirect(process.env.CLIENT_REDIRECT_ORIGIN);
 });
 app.get("/api/test", (req, res) => {
     const { user } = req;
