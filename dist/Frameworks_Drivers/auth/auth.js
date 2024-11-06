@@ -4,7 +4,7 @@ import { prisma } from "../singeltons/singeltons.js";
 import dotenv from "dotenv";
 dotenv.config();
 passport.serializeUser((user, done) => {
-    done(null, { id: user.id, email: user.email, name: user.name, iamge: user.image });
+    done(null, { id: user.id });
 });
 passport.deserializeUser(async (user, done) => {
     try {
@@ -42,7 +42,7 @@ passport.use(new Strategy({
                         email: profile.emails[0].value,
                         image: profile.photos[0].value
                     },
-                    select: { id: true, name: true, email: true, image: true },
+                    select: { id: true },
                 });
                 await ts.account.create({
                     data: {
@@ -60,7 +60,7 @@ passport.use(new Strategy({
                         image: profile.photos[0].value
                     },
                     where: { id: account.userId },
-                    select: { id: true, name: true, email: true, image: true },
+                    select: { id: true },
                 });
             }
         });
